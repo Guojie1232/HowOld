@@ -18,6 +18,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity1);
+        
+         Button btnButton1,btnButton2;
+        
+        btnButton1 = (Button) findViewById(R.id.btn1);
+        btnButton2 = (Button) findViewById(R.id.btn2);
 
        
     }
