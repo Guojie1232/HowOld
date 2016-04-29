@@ -21,7 +21,19 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity1);
-        
+        protected static final int PICK_CODE = 333;
+	private ImageView mPhoto;
+	private Button mGetImage;
+	private Button mDetect;
+	private Button mClose;
+	private TextView mTip;
+	private View mWaiting;
+	private String mCurrentPhotoStr;
+	private Bitmap mpi;
+	private Paint mPaint;
+	
+	private static final int MSG_SUCC = 222;
+	private static final int MSG_ERROR= 111;
         Button btnButton1,btnButton2;
         
         btnButton1 = (Button) findViewById(R.id.btn1);
