@@ -90,12 +90,17 @@ android:orientation="vertical"/>
         android:layout_toLeftOf="@id/id_getImage"        
         android:text="Detect" />
 
+    
     <TextView
         android:id="@+id/id_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
+        android:singleLine="false"
+        
+        android:textColor="#ffffff"
+        android:textSize="30dp"
         android:layout_alignTop="@id/id_detect"
         android:layout_toLeftOf="@id/id_detect"
        />
