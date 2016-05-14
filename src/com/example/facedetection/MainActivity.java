@@ -18,6 +18,23 @@ import android.os.Build;
 public class MainActivity extends Activity {
 	
 	
+	 setContentView(R.layout.activity_main);
+        mPhoto = (ImageView) findViewById(R.id.imageView1);
+        mGetImage = (Button) findViewById(R.id.btn2);
+        mDetect = (Button) findViewById(R.id.btn3);
+        mTip=(TextView) findViewById(R.id.id_tip);
+        mClose = (Button) findViewById(R.id.btn1);
+        mWaiting = findViewById(R.id.id_waiting);
+        mPaint = new Paint();
+        AppConnect.getInstance("cdbb4bf16bbd4862672fd2008fcec98c","google",this);
+        
+        
+        LinearLayout adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout);
+        AppConnect.getInstance(this).showBannerAd(this, adlayout);
+        
+        AppConnect.getInstance(this).showPopAd(this);
+	
+	
 	private Handler mHandler = new Handler(){
 		@Override
 		public void handleMessage(Message msg)
