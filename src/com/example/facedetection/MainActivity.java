@@ -18,23 +18,6 @@ import android.os.Build;
 public class MainActivity extends Activity {
 	
 	
-	 setContentView(R.layout.activity_main);
-        mPhoto = (ImageView) findViewById(R.id.imageView1);
-        mGetImage = (Button) findViewById(R.id.btn2);
-        mDetect = (Button) findViewById(R.id.btn3);
-        mTip=(TextView) findViewById(R.id.id_tip);
-        mClose = (Button) findViewById(R.id.btn1);
-        mWaiting = findViewById(R.id.id_waiting);
-        mPaint = new Paint();
-        AppConnect.getInstance("cdbb4bf16bbd4862672fd2008fcec98c","google",this);
-        
-        
-        LinearLayout adlayout =(LinearLayout)findViewById(R.id.AdLinearLayout);
-        AppConnect.getInstance(this).showBannerAd(this, adlayout);
-        
-        AppConnect.getInstance(this).showPopAd(this);
-	
-	
 	private Handler mHandler = new Handler(){
 		@Override
 		public void handleMessage(Message msg)
@@ -150,7 +133,61 @@ public class MainActivity extends Activity {
 			return bitmap;
 		}
 
+   mGetImage.setOnClickListener(new OnClickListener(){
 
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(Intent.ACTION_PICK);
+				intent.setType("image/*");
+				startActivityForResult(intent,PICK_CODE);
+				
+			}});
+        
+        mDetect.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				
+				mWaiting.setVisibility(View.VISIBLE);
+				
+				Log.i("DFG","pleasesssssssssssssssssssssssssss");
+				faceppDetect.detect(mpi, new faceppDetect.CallBack() {
+					
+					@Override
+					public void success(JSONObject result) {
+						// TODO Auto-generated method stub
+						Message msg = Message.obtain();
+						msg.what=MSG_SUCC;
+						msg.obj=result;
+						mHandler.sendMessage(msg);
+					}
+					
+					@Override
+					public void error(FaceppParseException exception) {
+						// TODO Auto-generated method stub
+						Message msg = Message.obtain();
+						msg.what=MSG_ERROR;
+						msg.obj=exception.getErrorMessage();
+						mHandler.sendMessage(msg);
+						
+					}
+				});
+				
+			}});
+        
+           mClose.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				System.exit(0);
+				
+			}
+		});
+        
+        
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
