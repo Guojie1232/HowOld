@@ -69,7 +69,9 @@ android:orientation="vertical"/>
           android:tag="sleep" />
   </com.example.facedetection.view.ArcMenu>
     
-    <Button
+    
+   <Button
+       android:visibility="invisible"
         android:id="@+id/id_getImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,6 +79,16 @@ android:orientation="vertical"/>
         android:layout_alignParentBottom="true"
         android:layout_marginRight="10dp"
         android:text="Get Image" />
+
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/id_detect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@id/id_getImage"        
+        android:text="Detect" />
 
     <TextView
         android:id="@+id/id_tip"
@@ -86,10 +98,8 @@ android:orientation="vertical"/>
         android:layout_marginRight="10dp"
         android:layout_alignTop="@id/id_detect"
         android:layout_toLeftOf="@id/id_detect"
-         />
+       />
 
-    
-    
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
@@ -97,7 +107,8 @@ android:orientation="vertical"/>
         android:layout_above="@+id/id_detect"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="160dp"
-        android:src="@drawable/t4" />
+        android:src="@drawable/view" />
+
 
     <FrameLayout
         android:layout_width="match_parent"
